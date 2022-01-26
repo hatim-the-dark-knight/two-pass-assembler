@@ -10,10 +10,10 @@ void main () {
 
     int start_address, loc_ctr, pgm_len;
     
-    inp_pgm_fp = fopen ("inp-pgm-p1.dat", "r");
-    intermediate_fp = fopen ("intmdt-file-op-p1.dat", "w");
-    sym_tbl_fp = fopen ("symb-tbl-op-p1.dat", "w");
-    len_fp = fopen ("pgm-len-op-p1.dat", "w");
+    inp_pgm_fp = fopen ("input-pgm-p1.dat", "r");
+    intermediate_fp = fopen ("output-intmdt-file-p1.dat", "w");
+    sym_tbl_fp = fopen ("output-symb-tbl-p1.dat", "w");
+    len_fp = fopen ("output-pgm-len-p1.dat", "w");
 
     fscanf (inp_pgm_fp, "%s\t%s\t%X", label, opcode, &start_address);
     if (strcmp (opcode, "START") == 0) {
@@ -35,7 +35,7 @@ void main () {
             fprintf (sym_tbl_fp, "%s\t%X\n", label, loc_ctr);
         }
 
-        opcd_tbl_fp = fopen ("opcode-table-p1.dat", "r");
+        opcd_tbl_fp = fopen ("input-opcode-table-p1.dat", "r");
         fscanf (opcd_tbl_fp, "%s\t%s", op_code, hexacode);
 
         while (!feof (opcd_tbl_fp)) {
